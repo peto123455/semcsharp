@@ -21,6 +21,7 @@ namespace semestralka
     public partial class MainWindow : Window
     {
         public bool editMode = true;
+        private Vehicle? currentVehicle;
 
         public MainWindow()
         {
@@ -30,8 +31,9 @@ namespace semestralka
         private void VehicleCreateButton(object sender, RoutedEventArgs e)
         {
             Vehicle vehicle = new Vehicle("Prázne Vozidlo", "", "", "", "", 0, 0, 0, 0);
-
             AvailableVehiclesList.Items.Add(vehicle);
+
+            EditVehicle(vehicle);
         }
 
         private void SelectAvailableVehicle(object sender, MouseButtonEventArgs e)
@@ -39,14 +41,12 @@ namespace semestralka
             if (AvailableVehiclesList.SelectedItem == null) return;
 
             if (editMode)
-            {
-                VehicleWindow vehicleWindow = new VehicleWindow(this, (Vehicle)AvailableVehiclesList.SelectedItem);
-                vehicleWindow.Show();
+            {;
+                EditVehicle((Vehicle)AvailableVehiclesList.SelectedItem);
                 return;
             }
 
-            VehicleLeaseWindow vehicleLease = new VehicleLeaseWindow(this, (Vehicle)AvailableVehiclesList.SelectedItem);
-            vehicleLease.Show();
+            new VehicleLeaseWindow(this, (Vehicle) AvailableVehiclesList.SelectedItem).Show();
         }
 
         private void SelectLeasedVehicles(object sender, MouseButtonEventArgs e)
@@ -55,15 +55,17 @@ namespace semestralka
 
             if (editMode)
             {
-                VehicleWindow window = new VehicleWindow(this, (Vehicle)LeasedVehiclesList.SelectedItem);
-                window.Show();
+                EditVehicle((Vehicle) LeasedVehiclesList.SelectedItem);
                 return;
             }
 
-            VehicleLeaseInfoWindow vehicleLeaseInfo = new VehicleLeaseInfoWindow(this, (Vehicle)LeasedVehiclesList.SelectedItem);
-            vehicleLeaseInfo.Show();
+            new VehicleLeaseInfoWindow(this, (Vehicle) LeasedVehiclesList.SelectedItem).Show();
         }
 
+        private void EditVehicle(Vehicle vehicle)
+        {
+            new VehicleWindow(this, vehicle).Show();
+		}
         public void Update()
         {
             AvailableVehiclesList.Items.Refresh();
@@ -102,5 +104,60 @@ namespace semestralka
         {
             editMode = false;
         }
-    }
+
+		public bool remove(Vehicle vehicle)
+		{
+			if (AvailableVehiclesList.Items.Contains(vehicle))
+            {
+                AvailableVehiclesList.Items.Remove(vehicle);
+                return true;
+            }
+            else if (LeasedVehiclesList.Items.Contains(vehicle))
+            {
+                LeasedVehiclesList.Items.Remove(vehicle);
+                return true;
+            }
+
+            return false;
+		}
+
+		private void AvailableVehicleSelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			ChangeVehicle((Vehicle) AvailableVehiclesList.SelectedItem);
+		}
+
+		private void LeasedVehicleSelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+            ChangeVehicle((Vehicle) LeasedVehiclesList.SelectedItem);
+		}
+
+        private void ChangeVehicle(Vehicle vehicle)
+        {
+            if (vehicle == null) return;
+
+            this.currentVehicle = vehicle;
+
+            this.UpdateVehicleInfo();
+        }
+
+        private void UpdateVehicleInfo()
+        {
+            if (currentVehicle == null) return;
+
+            VehicleInfo.Text = String.Format("Výrobca: {0}\nModel: {1}", currentVehicle.brand, currentVehicle.model);
+
+            LeasesList.Items.Clear();
+            foreach (var item in currentVehicle.leases)
+            {
+                LeasesList.Items.Add(item);
+            }
+        }
+
+		private void SelectedLease(object sender, MouseButtonEventArgs e)
+		{
+            if (LeasesList.SelectedItem == null) return;
+
+            new VehicleLeaseInfoWindow(this, (LeaseInfo) LeasesList.SelectedItem).Show();
+		}
+	}
 }
