@@ -21,3 +21,8 @@ C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\sem
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\ref\semestralka.dll
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.g.cs
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka_Content.g.cs

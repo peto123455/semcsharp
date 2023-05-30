@@ -57,6 +57,12 @@ namespace semestralka
 
         private void Save(object sender, RoutedEventArgs e)
         {
+            if (BrandTB.Text.Length == 0 || ModelTB.Text.Length == 0 || PlateTB.Text.Length == 0)
+            {
+                MessageBox.Show("Výrobca, Model a ŠPZ sú povinné polia");
+                return;
+            }
+
             currentVehicle.brand = BrandTB.Text;
             currentVehicle.model = ModelTB.Text;
             currentVehicle.vin = VINTB.Text;

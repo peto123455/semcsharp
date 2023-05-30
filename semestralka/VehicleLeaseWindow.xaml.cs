@@ -17,18 +17,18 @@ namespace semestralka
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class VehicleLease : Window
+    public partial class VehicleLeaseWindow : Window
     {
         private Vehicle currentVehicle;
         private MainWindow mainWindow;
 
-        public VehicleLease(MainWindow parent)
+        public VehicleLeaseWindow(MainWindow parent)
         {
             InitializeComponent();
             mainWindow = parent;
         }
 
-        public VehicleLease(MainWindow parent, Vehicle vehicle)
+        public VehicleLeaseWindow(MainWindow parent, Vehicle vehicle)
         {
             InitializeComponent();
             mainWindow = parent;
@@ -42,10 +42,26 @@ namespace semestralka
 
         private void Lease(object sender, RoutedEventArgs e)
         {
+            DateTime? from = FromCalendar.SelectedDate;
+            DateTime? to = ToCalendar.SelectedDate;
 
-            //LeaseInfo leaseInfo = new LeaseInfo();
+            TimeSpan? range = to - from;
 
-            this.mainWindow.Update();
+            if (NameTB.Text.Length == 0)
+            {
+                MessageBox.Show("Meno je povinné !");
+                return;
+            }
+            else if (range == null || from >= to)
+            {
+                MessageBox.Show("Neplatné dátumy !");
+                return;
+            }
+
+            int totalCost = currentVehicle.rentPrice * (int)range.Value.TotalDays;
+            LeaseInfo leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)FromCalendar.SelectedDate, (DateTime)ToCalendar.SelectedDate, totalCost);
+
+            this.mainWindow.LeaseVehicle(this.currentVehicle, leaseInfo);
             this.Close();
         }
 

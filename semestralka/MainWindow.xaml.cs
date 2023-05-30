@@ -20,7 +20,7 @@ namespace semestralka
     /// </summary>
     public partial class MainWindow : Window
     {
-        public bool editMode = false;
+        public bool editMode = true;
 
         public MainWindow()
         {
@@ -29,7 +29,7 @@ namespace semestralka
 
         private void VehicleCreateButton(object sender, RoutedEventArgs e)
         {
-            Vehicle vehicle = new Vehicle("Audi", "R8", "AA123BB", "123456789", "Čierna", 4, 85500, 2015, 50);
+            Vehicle vehicle = new Vehicle("Prázne Vozidlo", "", "", "", "", 0, 0, 0, 0);
 
             AvailableVehiclesList.Items.Add(vehicle);
         }
@@ -40,13 +40,13 @@ namespace semestralka
 
             if (editMode)
             {
-                VehicleWindow window = new VehicleWindow(this, (Vehicle)AvailableVehiclesList.SelectedItem);
-                window.Show();
+                VehicleWindow vehicleWindow = new VehicleWindow(this, (Vehicle)AvailableVehiclesList.SelectedItem);
+                vehicleWindow.Show();
                 return;
             }
 
-            LeasedVehiclesList.Items.Add(AvailableVehiclesList.SelectedItem);
-            AvailableVehiclesList.Items.Remove(AvailableVehiclesList.SelectedItem);
+            VehicleLeaseWindow vehicleLease = new VehicleLeaseWindow(this, (Vehicle)AvailableVehiclesList.SelectedItem);
+            vehicleLease.Show();
         }
 
         private void SelectLeasedVehicles(object sender, MouseButtonEventArgs e)
@@ -60,14 +60,37 @@ namespace semestralka
                 return;
             }
 
-            AvailableVehiclesList.Items.Add(LeasedVehiclesList.SelectedItem);
-            LeasedVehiclesList.Items.Remove(LeasedVehiclesList.SelectedItem);
+            VehicleLeaseInfoWindow vehicleLeaseInfo = new VehicleLeaseInfoWindow(this, (Vehicle)LeasedVehiclesList.SelectedItem);
+            vehicleLeaseInfo.Show();
         }
 
         public void Update()
         {
             AvailableVehiclesList.Items.Refresh();
             LeasedVehiclesList.Items.Refresh();
+        }
+
+        public void LeaseVehicle(Vehicle vehicle, LeaseInfo leaseInfo)
+        {
+            if (!AvailableVehiclesList.Items.Contains(vehicle)) return;
+
+            vehicle.leases.Add(leaseInfo);
+            
+            LeasedVehiclesList.Items.Add(vehicle);
+            AvailableVehiclesList.Items.Remove(vehicle);
+
+            this.Update();
+        }
+
+        public void ReturnVehicle(Vehicle vehicle)
+        {
+            if (!LeasedVehiclesList.Items.Contains(vehicle)) return;
+
+            AvailableVehiclesList.Items.Add(vehicle);
+            LeasedVehiclesList.Items.Remove(vehicle);
+
+            vehicle.leases.Last().Return();
+            this.Update();
         }
 
         private void EditButton(object sender, RoutedEventArgs e)

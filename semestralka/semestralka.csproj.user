@@ -15,6 +15,12 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="VehicleLeaseInfoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VehicleLeaseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="VehicleWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

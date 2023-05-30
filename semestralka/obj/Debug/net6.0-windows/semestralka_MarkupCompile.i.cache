@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\peto1\source\repos\semestralka\semestralka\App.xaml
-3-893725828
-
-9-1026737843
+4-1614118735
+1412533799
+101911199236
 194-1617825143
-MainWindow.xaml;VehicleLease.xaml;VehicleWindow.xaml;
+MainWindow.xaml;VehicleLeaseInfoWindow.xaml;VehicleLeaseWindow.xaml;VehicleWindow.xaml;
 
 False
 

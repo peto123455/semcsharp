@@ -125,7 +125,7 @@ namespace semestralka {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/semestralka;V1.0.0.0;component/vehiclewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/semestralka;component/vehiclewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\VehicleWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

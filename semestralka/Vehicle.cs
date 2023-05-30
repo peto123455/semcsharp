@@ -41,7 +41,7 @@ namespace semestralka
 
         public override String ToString()
         {
-            return this.brand + " " + this.model;
+            return this.brand + " " + this.model + " - " + this.plate;
         }
     }
 }
