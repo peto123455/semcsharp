@@ -77,8 +77,9 @@ namespace semestralka
             this.Close();
         }
 
-        private void CloseButton(object sender, RoutedEventArgs e)
+        private void DeleteButton(object sender, RoutedEventArgs e)
         {
+            this.mainWindow.remove(this.currentVehicle);
             this.Close();
         }
     }

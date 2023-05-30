@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:semestralka"
         mc:Ignorable="d"
-        Title="Požičanie vozidla" Height="506" Width="393">
+        Title="Požičanie vozidla" Height="314" Width="242" MinHeight="300" MinWidth="240">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -36,7 +36,7 @@
         <Label Name="Price" Grid.Row="4" Grid.Column="1" Content="0 €" Width="auto" Margin="0, 5"/>
 
         <Button Grid.Row="5" Grid.Column="0" Content="Zavrieť" Margin="5" Click="CloseButton"/>
-        <Button Grid.Row="5" Grid.Column="1" Content="Vrátené" Margin="5" Click="Return"/>
+        <Button Name="ReturnButton" Grid.Row="5" Grid.Column="1" Content="Vrátené" Margin="5" Click="Return"/>
         
 
     </Grid>

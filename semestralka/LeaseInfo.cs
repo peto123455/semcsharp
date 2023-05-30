@@ -31,5 +31,10 @@ namespace semestralka
 
             returned = DateTime.Now;
         }
-    }
+
+		public override String ToString()
+		{
+            return this.Name + " " + this.from.ToString("dd-MM-yyyy");
+		}
+	}
 }

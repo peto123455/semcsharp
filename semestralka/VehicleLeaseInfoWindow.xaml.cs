@@ -19,8 +19,9 @@ namespace semestralka
     /// </summary>
     public partial class VehicleLeaseInfoWindow : Window
     {
-        private Vehicle currentVehicle;
-        private MainWindow mainWindow;
+        private Vehicle? currentVehicle;
+        private LeaseInfo? leaseInfo;
+		private MainWindow mainWindow;
 
         public VehicleLeaseInfoWindow(MainWindow parent)
         {
@@ -28,24 +29,42 @@ namespace semestralka
             mainWindow = parent;
         }
 
-        public VehicleLeaseInfoWindow(MainWindow parent, Vehicle vehicle)
-        {
-            InitializeComponent();
-            mainWindow = parent;
-            this.SetVehicle(vehicle);
+		public VehicleLeaseInfoWindow(MainWindow parent, Vehicle vehicle)
+		{
+			InitializeComponent();
+			mainWindow = parent;
+			this.SetVehicle(vehicle);
 
-            LoadText();
-        }
+			LoadText();
+		}
 
-        public void SetVehicle(Vehicle vehicle)
-        {
-            currentVehicle = vehicle;
-            LoadText();
-        }
+		public VehicleLeaseInfoWindow(MainWindow parent, LeaseInfo leaseInfo)
+		{
+			InitializeComponent();
 
-        private void LoadText()
+            ReturnButton.IsEnabled = false;
+
+			mainWindow = parent;
+			this.SetLease(leaseInfo);
+
+			LoadText();
+		}
+
+		public void SetVehicle(Vehicle vehicle)
+		{
+			currentVehicle = vehicle;
+            SetLease(currentVehicle.leases.Last());
+		}
+
+		public void SetLease(LeaseInfo leaseInfo)
+		{
+            this.leaseInfo = leaseInfo;
+			LoadText();
+		}
+
+		private void LoadText()
         {
-            LeaseInfo leaseInfo = currentVehicle.leases.Last();
+            if (leaseInfo== null) return;
 
             Name.Content = leaseInfo.Name;
             Contact.Content = leaseInfo.Contact;
@@ -56,6 +75,8 @@ namespace semestralka
 
         private void Return(object sender, RoutedEventArgs e)
         {
+            if (currentVehicle == null) return;
+
             this.mainWindow.ReturnVehicle(currentVehicle);
             this.Close();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:semestralka"
         mc:Ignorable="d"
-        Title="Požičanie vozidla" Height="506" Width="393">
+        Title="Požičanie vozidla" Height="506" Width="393" MinHeight="500" MinWidth="360">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
