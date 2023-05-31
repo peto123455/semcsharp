@@ -8,15 +8,13 @@ namespace semestralka
     {
         private PaperWork? _currentPaperWork;
         private readonly Vehicle _vehicle;
-        private readonly MainWindow _mainWindow;
 
-        public PaperWorkWindow(MainWindow parent, Vehicle vehicle)
+        public PaperWorkWindow(Vehicle vehicle)
         {
             InitializeComponent();
-            _mainWindow = parent;
             _vehicle = vehicle;
 
-            resetList();
+            ResetList();
             Update();
         }
 
@@ -34,14 +32,14 @@ namespace semestralka
             if (result != MessageBoxResult.Yes) return;
 
             _vehicle.paperWorks.Remove((PaperWork)PaperworkList.SelectedItem);
-            resetList();
+            ResetList();
         }
 
 
-        public void addPaperWork(PaperWork paperWork)
+        public void AddPaperWork(PaperWork paperWork)
         {
             _vehicle.paperWorks.Add(paperWork);
-            resetList();
+            ResetList();
             Update();
         }
 
@@ -53,7 +51,7 @@ namespace semestralka
             PaperworkTb.Text = _currentPaperWork.PaperworkDetails();
         }
 
-        private void resetList()
+        private void ResetList()
         {
             PaperworkList.Items.Clear();
 

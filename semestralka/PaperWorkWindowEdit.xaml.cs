@@ -44,7 +44,7 @@ namespace semestralka
 
             if (to != null) paperWork.validUntil = (DateTime)to;
 
-            _mainWindow.addPaperWork(paperWork);
+            _mainWindow.AddPaperWork(paperWork);
 
             Close();
         }

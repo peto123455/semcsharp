@@ -3,7 +3,7 @@
   <Class Name="semestralka.MainWindow">
     <Position X="5.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQQEgAAAAEAAAEgAgAQFAgEEAgAABBAAAAEAAAAhAA=</HashCode>
+      <HashCode>AAQQEgAAAAEAAAEgAgAQFAgEEAwAABBAAAAEAAAAhAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -56,24 +56,47 @@
   <Class Name="semestralka.Data.Vehicle">
     <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEEAAACAABAgAAEAAAAAAAAAAABAAmACAAAAAAKAAA=</HashCode>
+      <HashCode>AAEEAAACAABBgAAEAAAAAAAAAAABAAmACAAAAAAKAAA=</HashCode>
       <FileName>Data\Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="semestralka.Data.PaperWork">
     <Position X="2.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAABAAAAAEIAAAAAAAAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAABAAAAAEIAAAAAAAAAAFAAAAAAACAAAAAAA=</HashCode>
       <FileName>Data\PaperWork.cs</FileName>
       <NewMemberFileName>Data\LeaseInfo.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="semestralka.Utils.Constants">
-    <Position X="5.5" Y="6.5" Width="2" />
+    <Position X="8" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utils\Constants.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.Data.LeaseInfo">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAABAAAAAEAAgAAQgAAAAFAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Data\LeaseInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.PaperWorkWindow">
+    <Position X="12.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAQAAAAAAAAQAAAAAAAAAGIAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>PaperWorkWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="semestralka.PaperWorkWindowEdit">
+    <Position X="10.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAABAAAAAAAQAABAAAAAAAAAAAA=</HashCode>
+      <FileName>PaperWorkWindowEdit.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

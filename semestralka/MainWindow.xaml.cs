@@ -243,7 +243,7 @@ namespace semestralka
         {
             if (_currentVehicle == null) return;
 
-            new PaperWorkWindow(this, _currentVehicle).ShowDialog();
+            new PaperWorkWindow(_currentVehicle).ShowDialog();
         }
     }
 }
