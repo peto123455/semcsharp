@@ -62,6 +62,10 @@ namespace semestralka
 
         private void DeleteButton(object sender, RoutedEventArgs e)
         {
+            var result = MessageBox.Show("Naozaj chceš odstrániť toto vozidlo?", "Odstránenie vozidla", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result != MessageBoxResult.Yes) return;
+
             _mainWindow.Remove(this._currentVehicle);
             Close();
         }

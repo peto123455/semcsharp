@@ -70,6 +70,10 @@ namespace semestralka
         {
             if (_currentVehicle == null) return;
 
+            var result = MessageBox.Show("Naozaj chceš označiť vozilo ako vrátené?", "Vrátenie vozidla", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result != MessageBoxResult.Yes) return;
+
             _mainWindow.ReturnVehicle(_currentVehicle);
             Close();
         }

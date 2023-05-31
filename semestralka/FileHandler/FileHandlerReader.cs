@@ -27,7 +27,7 @@ namespace semestralka.FileHandler
             {
                 var split = s.Split(';');
 
-                if (split[0] != prefix && split[0] != "lease")
+                if (split[0] != prefix && split[0] != "lease" && split[0] != "paperwork")
                 {
                     previousVehicle = null;
                 }
@@ -49,6 +49,18 @@ namespace semestralka.FileHandler
                     if (split[5] != "") leaseInfo.SetReturn(returned);
 
                     previousVehicle.leases.Add(leaseInfo);
+
+                }
+
+                if (split[0] == "paperwork")
+                {
+                    if (previousVehicle == null) continue;
+
+                    var paperWork = new PaperWork(split[1], DateTime.Parse(split[2]), split[4]);
+                    DateTime.TryParse(split[3], out DateTime until);
+                    if (split[3] != "") paperWork.validUntil = until;
+
+                    previousVehicle.paperWorks.Add(paperWork);
 
                 }
 

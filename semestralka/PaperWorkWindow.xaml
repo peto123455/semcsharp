@@ -1,0 +1,26 @@
+﻿<Window x:Class="semestralka.PaperWorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:semestralka"
+        mc:Ignorable="d"
+        Title="Doklady" Height="450" Width="498">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Doklady" HorizontalAlignment="Left"/>
+        <UniformGrid Grid.Row="1" Rows="1" Columns="2">
+            <ListBox Name="PaperworkList" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="PaperworkListSelectionChanged" />
+            <TextBlock Name="PaperworkTb" Padding="20" />
+        </UniformGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Content="Pridať" Margin="5" Padding="3" Click="AddItemButton" />
+            <Button Content="Zmazať" Margin="5" Padding="3" Click="DeleteItemButton" />
+        </StackPanel>
+
+    </Grid>
+</Window>

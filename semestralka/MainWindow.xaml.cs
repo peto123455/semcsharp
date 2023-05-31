@@ -62,6 +62,7 @@ namespace semestralka
         {
             AvailableVehiclesList.Items.Refresh();
             LeasedVehiclesList.Items.Refresh();
+            UpdateVehicleInfo();
         }
 
         public void LeaseVehicle(Vehicle vehicle, LeaseInfo leaseInfo)
@@ -119,7 +120,7 @@ namespace semestralka
 
 		private void LeasedVehicleSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-            if (AvailableVehiclesList.SelectedItem == null) return;
+            if (LeasedVehiclesList.SelectedItem == null) return;
 
             ChangeVehicle((Vehicle) LeasedVehiclesList.SelectedItem);
 		}
@@ -202,6 +203,8 @@ namespace semestralka
             }
 
             fileHandler.Close();
+
+            Update();
         }
 
         private void SaveButton(object sender, RoutedEventArgs e)
@@ -232,6 +235,15 @@ namespace semestralka
             }
 
             fileHandler.Close();
+
+            Update();
+        }
+
+        private void PaperworkButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (_currentVehicle == null) return;
+
+            new PaperWorkWindow(this, _currentVehicle).ShowDialog();
         }
     }
 }

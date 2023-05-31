@@ -19,6 +19,10 @@ namespace semestralka.FileHandler
             {
                 _sw.WriteLine(lease.SaveFormat());
             }
+            foreach (var paperWork in vehicle.paperWorks)
+            {
+                _sw.WriteLine(paperWork.SaveFormat());
+            }
         }
 
         public override void Close()

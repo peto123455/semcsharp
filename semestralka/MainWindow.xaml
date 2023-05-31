@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:semestralka"
         mc:Ignorable="d"
-        Title="Správa vozidiel" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Správa vozidiel" Height="500" Width="950" MinHeight="500" MinWidth="950">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -79,6 +79,7 @@
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <Button Content="Správa" Margin="5" Padding="5" Click="VehicleAdminButton" />
                         <Button Content="Upraviť" Margin="5" Padding="5" Click="VehicleEditButton" />
+                        <Button Content="Doklady" Margin="5" Padding="5" Click="PaperworkButtonClick" />
                     </StackPanel>
                 </Grid>
             </GroupBox>

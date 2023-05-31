@@ -1,59 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="semestralka.utils.Constants">
-    <Position X="5.5" Y="6.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Constants.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="semestralka.FileHandler">
-    <Position X="1.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
-      <FileName>FileHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="semestralka.FileHandlerReader">
-    <Position X="0.5" Y="2.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAA=</HashCode>
-      <FileName>FileHandlerReader.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="semestralka.FileHandlerWriter">
-    <Position X="2.75" Y="2.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAACAAAA=</HashCode>
-      <FileName>FileHandlerWriter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="semestralka.LeaseInfo">
-    <Position X="2.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAABAAAAAECAgAAQwAAAABAAAAAAAAEAAAAAA=</HashCode>
-      <FileName>LeaseInfo.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="semestralka.MainWindow">
     <Position X="5.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQAEgAAAAEAAAEkAgAQEAiEAAgAABBAAAAEAAgAhAA=</HashCode>
+      <HashCode>AAQQEgAAAAEAAAEgAgAQFAgEEAgAABBAAAAEAAAAhAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="semestralka.Vehicle">
-    <Position X="0.5" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEEAAACAABAgAAEAQAAAAAAAAABAAmACAAAAAAIAAA=</HashCode>
-      <FileName>Vehicle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="semestralka.VehicleLeaseInfoWindow">
     <Position X="10.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAQACAAAAAAAAAAAiABAAAAAAAAAAAEAACAAA=</HashCode>
+      <HashCode>AAAQIAAAQACAAAAAAgABAAAAAAAAAAAAAAAAEAACAAA=</HashCode>
       <FileName>VehicleLeaseInfoWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -61,7 +19,7 @@
   <Class Name="semestralka.VehicleLeaseWindow">
     <Position X="8" Y="3.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAQAAAAAAAAAAAAACADAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQIAAAQAAAAAAAAAABAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleLeaseWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -69,10 +27,53 @@
   <Class Name="semestralka.VehicleWindow">
     <Position X="8" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAQACAAAAAAAAAAACABAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAIAAAACAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="semestralka.FileHandler.FileHandler">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAACAAAA=</HashCode>
+      <FileName>FileHandler\FileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.FileHandler.FileHandlerReader">
+    <Position X="0.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>FileHandler\FileHandlerReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.FileHandler.FileHandlerWriter">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>FileHandler\FileHandlerWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.Data.Vehicle">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAAACAABAgAAEAAAAAAAAAAABAAmACAAAAAAKAAA=</HashCode>
+      <FileName>Data\Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.Data.PaperWork">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAABAAAAAEIAAAAAAAAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\PaperWork.cs</FileName>
+      <NewMemberFileName>Data\LeaseInfo.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="semestralka.Utils.Constants">
+    <Position X="5.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Constants.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

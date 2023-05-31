@@ -15,10 +15,12 @@ namespace semestralka.Data
         public int rentPrice { get; set; }
 
         public List<LeaseInfo> leases { get; }
+        public List<PaperWork> paperWorks { get; }
 
         public Vehicle(string brand, string model, string plate, string vin, string color, int numberOfDoors, int mileage, int year, int rentPrice)
         {
             leases = new List<LeaseInfo>();
+            paperWorks = new List<PaperWork>();
 
             this.brand = brand;
             this.model = model;
@@ -38,7 +40,7 @@ namespace semestralka.Data
 
         public string VehicleDetails()
         {
-            return $"Výrobca: {brand}\nModel: {model}\nFarba: {color}\nPočet dverí: {numberOfDoors}\nNajazdené: {mileage} km\nRok výroby: {year}\nVIN: {vin}\n\n\nCena na deň: {rentPrice} €";
+            return $"Výrobca: {brand}\nModel: {model}\nFarba: {color}\nPočet dverí: {numberOfDoors}\nNajazdené: {mileage} km\nRok výroby: {year}\nŠPZ: {plate}\nVIN: {vin}\n\n\nCena na deň: {rentPrice} €";
         }
 
         public string SaveFormat(string prefix)

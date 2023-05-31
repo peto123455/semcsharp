@@ -17,6 +17,9 @@
     <Compile Update="VehicleLeaseInfoWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PaperWorkWindowEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="VehicleLeaseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
