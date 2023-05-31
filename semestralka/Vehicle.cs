@@ -43,5 +43,16 @@ namespace semestralka
         {
             return this.brand + " " + this.model + " - " + this.plate;
         }
+
+        public String VehicleDetails()
+        {
+            return String.Format("Výrobca: {0}\nModel: {1}\nFarba: {2}\nPočet dverí: {3}\nNajazdené: {4} km\nRok výroby: {5}\nVIN: {6}\n\n\nCena na deň: {7} €",
+                brand, model, color, numberOfDoors, milage, year, vin, rentPrice);
+        }
+
+        public String SaveFormat(String prefix)
+        {
+            return String.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};", prefix, brand, model, plate, vin, color, numberOfDoors, milage, year, rentPrice);
+        }
     }
 }

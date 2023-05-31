@@ -16,11 +16,10 @@
         </Grid.RowDefinitions>
 
         <UniformGrid Grid.Row="0" Rows="1">
-            <Button Content="Načítať" Margin="10, 5, 5, 5" Padding="2, 3"/>
-            <Button Content="Uložit" Margin="5" Padding="2, 3"/>
+            <Button Content="Načítať" Margin="10, 5, 5, 5" Padding="2, 3" Click="LoadButton"/>
+            <Button Content="Uložit" Margin="5" Padding="2, 3" Click="SaveButton"/>
             <Button Content="Vytvoriť Vozidlo" Margin="5" Padding="2, 3" Click="VehicleCreateButton"/>
-            <Button Content="Režim úpravy" Margin="5" Padding="2, 3" Click="EditButton"/>
-            <Button Content="Režim Správy" Margin="5, 5, 10, 5" Padding="2, 3" Click="AdminMode"/>
+            <Button Content="Dvojklik: Upraviť" Margin="5, 5, 10, 5" Padding="2, 3" Click="DoubleClickOnVehicle"/>
         </UniformGrid>
 
         <Grid Grid.Row="1">
@@ -78,8 +77,8 @@
                         </Grid>
                     </UniformGrid>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <Button Content="Vypožičať" Margin="5" Padding="5" />
-                        <Button Content="Upraviť" Margin="5" Padding="5" />
+                        <Button Content="Správa" Margin="5" Padding="5" Click="VehicleAdminButton" />
+                        <Button Content="Upraviť" Margin="5" Padding="5" Click="VehicleEditButton" />
                     </StackPanel>
                 </Grid>
             </GroupBox>

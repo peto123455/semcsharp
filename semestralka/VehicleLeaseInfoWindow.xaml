@@ -18,13 +18,14 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Meno:" Width="auto" Margin="0, 5"/>
-        <Label Name="Name" Grid.Row="0" Grid.Column="1" Content="Janko Hráško" Width="auto" Margin="0, 5"/>
+        <Label Name="NameLabel" Grid.Row="0" Grid.Column="1" Content="Janko Hráško" Width="auto" Margin="0, 5"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Kontakt:" Width="auto" Margin="0, 5"/>
-        <Label Name="Contact" Grid.Row="1" Grid.Column="1" Content="+421 902000000" Width="auto" Margin="0, 5"/>
+        <Label Name="ContactLabel" Grid.Row="1" Grid.Column="1" Content="+421 902000000" Width="auto" Margin="0, 5"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Od:" Width="auto" Margin="0, 5"/>
         <Label Name="From" Grid.Row="2" Grid.Column="1" Content="1.1.2023" Width="auto" Margin="0, 5"/>
@@ -32,11 +33,14 @@
         <Label Grid.Row="3" Grid.Column="0" Content="Do:" Width="auto" Margin="0, 5"/>
         <Label Name="To" Grid.Row="3" Grid.Column="1" Content="31.12.2023" Width="auto" Margin="0, 5"/>
 
-        <Label Grid.Row="4" Grid.Column="0" Content="Suma:" Width="auto" Margin="0, 5"/>
-        <Label Name="Price" Grid.Row="4" Grid.Column="1" Content="0 €" Width="auto" Margin="0, 5"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Vrátené:" Width="auto" Margin="0, 5"/>
+        <Label Name="Returned" Grid.Row="4" Grid.Column="1" Content="-" Width="auto" Margin="0, 5"/>
 
-        <Button Grid.Row="5" Grid.Column="0" Content="Zavrieť" Margin="5" Click="CloseButton"/>
-        <Button Name="ReturnButton" Grid.Row="5" Grid.Column="1" Content="Vrátené" Margin="5" Click="Return"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Suma:" Width="auto" Margin="0, 5"/>
+        <Label Name="Price" Grid.Row="5" Grid.Column="1" Content="0 €" Width="auto" Margin="0, 5"/>
+
+        <Button Grid.Row="6" Grid.Column="0" Content="Zavrieť" Margin="5" Click="CloseButton"/>
+        <Button Name="ReturnButton" Grid.Row="6" Grid.Column="1" Content="Vrátené" Margin="5" Click="Return"/>
         
 
     </Grid>

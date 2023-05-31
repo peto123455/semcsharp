@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\semcsharp-main\semestralka\obj\Debug\net6.0-windows\
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\
 semestralka
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\semcsharp-main\semestralka\App.xaml
+C:\Users\peto1\source\repos\semestralka\semestralka\App.xaml
 4-1614118735
 1412533799
-101911199236
-194-2004305220
+14-1542736891
+194-1617825143
 MainWindow.xaml;VehicleLeaseInfoWindow.xaml;VehicleLeaseWindow.xaml;VehicleWindow.xaml;
 
 False

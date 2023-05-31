@@ -22,23 +22,17 @@ namespace semestralka
         private Vehicle currentVehicle;
         private MainWindow mainWindow;
 
-        public VehicleWindow(MainWindow parent)
-        {
-            InitializeComponent();
-            mainWindow = parent;
-        }
-
         public VehicleWindow(MainWindow parent, Vehicle vehicle)
         {
             InitializeComponent();
             mainWindow = parent;
-            this.SetVehicle(vehicle);
+            currentVehicle = vehicle;
+            LoadTexts();
         }
 
         public void SetVehicle(Vehicle vehicle)
         {
             currentVehicle = vehicle;
-
             LoadTexts();
         }
 
@@ -59,7 +53,7 @@ namespace semestralka
         {
             if (BrandTB.Text.Length == 0 || ModelTB.Text.Length == 0 || PlateTB.Text.Length == 0)
             {
-                MessageBox.Show("Výrobca, Model a ŠPZ sú povinné polia");
+                MessageBox.Show("Výrobca, Model a ŠPZ sú povinné polia", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -68,10 +62,17 @@ namespace semestralka
             currentVehicle.vin = VINTB.Text;
             currentVehicle.plate = PlateTB.Text;
             currentVehicle.color = ColorTB.Text;
-            currentVehicle.numberOfDoors = int.Parse(DoorsTB.Text);
-            currentVehicle.milage = int.Parse(MilageTB.Text);
-            currentVehicle.year = int.Parse(YearTB.Text);
-            currentVehicle.rentPrice = int.Parse(PriceTB.Text);
+            try
+            {
+                currentVehicle.numberOfDoors = int.Parse(DoorsTB.Text);
+                currentVehicle.milage = int.Parse(MilageTB.Text);
+                currentVehicle.year = int.Parse(YearTB.Text);
+                currentVehicle.rentPrice = int.Parse(PriceTB.Text);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(utils.Constants.ERROR_SOMEWHERE + "\nChyba: " + ex.Message, utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             this.mainWindow.Update();
             this.Close();

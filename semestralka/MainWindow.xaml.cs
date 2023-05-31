@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +32,7 @@ namespace semestralka
 
         private void VehicleCreateButton(object sender, RoutedEventArgs e)
         {
-            Vehicle vehicle = new Vehicle("Prázne Vozidlo", "", "", "", "", 0, 0, 0, 0);
+            Vehicle vehicle = new Vehicle("Prázne", "Vozidlo", "AA000BB", "", "", 0, 0, 0, 0);
             AvailableVehiclesList.Items.Add(vehicle);
 
             EditVehicle(vehicle);
@@ -46,7 +48,7 @@ namespace semestralka
                 return;
             }
 
-            new VehicleLeaseWindow(this, (Vehicle) AvailableVehiclesList.SelectedItem).Show();
+            new VehicleLeaseWindow(this, (Vehicle) AvailableVehiclesList.SelectedItem).ShowDialog();
         }
 
         private void SelectLeasedVehicles(object sender, MouseButtonEventArgs e)
@@ -59,12 +61,12 @@ namespace semestralka
                 return;
             }
 
-            new VehicleLeaseInfoWindow(this, (Vehicle) LeasedVehiclesList.SelectedItem).Show();
+            new VehicleLeaseInfoWindow(this, (Vehicle) LeasedVehiclesList.SelectedItem).ShowDialog();
         }
 
         private void EditVehicle(Vehicle vehicle)
         {
-            new VehicleWindow(this, vehicle).Show();
+            new VehicleWindow(this, vehicle).ShowDialog();
 		}
         public void Update()
         {
@@ -95,14 +97,11 @@ namespace semestralka
             this.Update();
         }
 
-        private void EditButton(object sender, RoutedEventArgs e)
+        private void DoubleClickOnVehicle(object sender, RoutedEventArgs e)
         {
-            editMode = true;
-        }
+            editMode = !editMode;
 
-        private void AdminMode(object sender, RoutedEventArgs e)
-        {
-            editMode = false;
+            ((Button)sender).Content = editMode ? "Dvojklik: Úprava" : "Dvojklik: Správa";
         }
 
 		public bool remove(Vehicle vehicle)
@@ -144,7 +143,7 @@ namespace semestralka
         {
             if (currentVehicle == null) return;
 
-            VehicleInfo.Text = String.Format("Výrobca: {0}\nModel: {1}", currentVehicle.brand, currentVehicle.model);
+            VehicleInfo.Text = currentVehicle.VehicleDetails();
 
             LeasesList.Items.Clear();
             foreach (var item in currentVehicle.leases)
@@ -157,7 +156,77 @@ namespace semestralka
 		{
             if (LeasesList.SelectedItem == null) return;
 
-            new VehicleLeaseInfoWindow(this, (LeaseInfo) LeasesList.SelectedItem).Show();
+            new VehicleLeaseInfoWindow(this, (LeaseInfo) LeasesList.SelectedItem).ShowDialog();
 		}
-	}
+
+        private void VehicleEditButton(object sender, RoutedEventArgs e)
+        {
+            if (currentVehicle == null) return;
+
+            EditVehicle(currentVehicle);
+        }
+
+        private void VehicleAdminButton(object sender, RoutedEventArgs e)
+        {
+            if (currentVehicle == null) return;
+
+            if (AvailableVehiclesList.Items.Contains(currentVehicle))
+            {
+                new VehicleLeaseWindow(this, currentVehicle).ShowDialog();
+                return;
+            }
+            else if (LeasedVehiclesList.Items.Contains(currentVehicle))
+            {
+                new VehicleLeaseInfoWindow(this, currentVehicle).ShowDialog();
+                return;
+            }
+        }
+
+        private void LoadButton(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                FileHandlerReader fileHandler = new FileHandlerReader(openFileDialog.OpenFile());
+
+                AvailableVehiclesList.Items.Clear();
+                LeasedVehiclesList.Items.Clear();
+
+                foreach (Vehicle vehicle in fileHandler.GetVehicles("available"))
+                {
+                    AvailableVehiclesList.Items.Add(vehicle);
+                }
+
+                foreach (Vehicle vehicle in fileHandler.GetVehicles("leased"))
+                {
+                    LeasedVehiclesList.Items.Add(vehicle);
+                }
+
+                fileHandler.Close();
+            }
+        }
+
+        private void SaveButton(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV File|*.csv";
+
+            if (saveFileDialog.ShowDialog() == true && saveFileDialog.FileName != "")
+            {
+                FileHandlerWriter fileHandler = new FileHandlerWriter(saveFileDialog.OpenFile());
+
+                foreach (Vehicle vehicle in AvailableVehiclesList.Items)
+                {
+                    fileHandler.SaveVehicle(vehicle, "available");
+                }
+
+                foreach (Vehicle vehicle in LeasedVehiclesList.Items)
+                {
+                    fileHandler.SaveVehicle(vehicle, "leased");
+                }
+
+                fileHandler.Close();
+            }
+        }
+    }
 }

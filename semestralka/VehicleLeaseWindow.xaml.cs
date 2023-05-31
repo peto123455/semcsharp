@@ -19,14 +19,8 @@ namespace semestralka
     /// </summary>
     public partial class VehicleLeaseWindow : Window
     {
-        private Vehicle currentVehicle;
+        private Vehicle? currentVehicle;
         private MainWindow mainWindow;
-
-        public VehicleLeaseWindow(MainWindow parent)
-        {
-            InitializeComponent();
-            mainWindow = parent;
-        }
 
         public VehicleLeaseWindow(MainWindow parent, Vehicle vehicle)
         {
@@ -42,6 +36,8 @@ namespace semestralka
 
         private void Lease(object sender, RoutedEventArgs e)
         {
+            if (currentVehicle == null) return;
+
             DateTime? from = FromCalendar.SelectedDate;
             DateTime? to = ToCalendar.SelectedDate;
 
@@ -49,17 +45,17 @@ namespace semestralka
 
             if (NameTB.Text.Length == 0)
             {
-                MessageBox.Show("Meno je povinné !");
+                MessageBox.Show("Meno je povinné !", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else if (range == null || from >= to)
+            else if (from == null || to == null || range == null || from >= to)
             {
-                MessageBox.Show("Neplatné dátumy !");
+                MessageBox.Show("Neplatné dátumy !", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             int totalCost = currentVehicle.rentPrice * (int)range.Value.TotalDays;
-            LeaseInfo leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)FromCalendar.SelectedDate, (DateTime)ToCalendar.SelectedDate, totalCost);
+            LeaseInfo leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)from, (DateTime)to, totalCost);
 
             this.mainWindow.LeaseVehicle(this.currentVehicle, leaseInfo);
             this.Close();

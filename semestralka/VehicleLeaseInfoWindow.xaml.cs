@@ -66,11 +66,16 @@ namespace semestralka
         {
             if (leaseInfo== null) return;
 
-            Name.Content = leaseInfo.Name;
-            Contact.Content = leaseInfo.Contact;
+            NameLabel.Content = leaseInfo.Name;
+            ContactLabel.Content = leaseInfo.Contact;
             From.Content = leaseInfo.from.ToString("dd.MM.yyyy");
             To.Content = leaseInfo.to.ToString("dd.MM.yyyy");
             Price.Content = leaseInfo.totalCost.ToString() + " €";
+
+            if (leaseInfo.returned != null)
+            {
+                Returned.Content = ((DateTime) leaseInfo.returned).ToString("dd.MM.yyyy hh:mm");
+            }
         }
 
         private void Return(object sender, RoutedEventArgs e)
