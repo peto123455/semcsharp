@@ -1,5 +1,4 @@
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.csproj.AssemblyReference.cache
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka_MarkupCompile.cache
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka_MarkupCompile.lref
@@ -8,7 +7,6 @@ C:\Users\peto1\source\repos\semestralka\semestralka\bin\Debug\net6.0-windows\sem
 C:\Users\peto1\source\repos\semestralka\semestralka\bin\Debug\net6.0-windows\semestralka.runtimeconfig.json
 C:\Users\peto1\source\repos\semestralka\semestralka\bin\Debug\net6.0-windows\semestralka.dll
 C:\Users\peto1\source\repos\semestralka\semestralka\bin\Debug\net6.0-windows\semestralka.pdb
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.g.resources
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.AssemblyInfoInputs.cache
@@ -19,12 +17,6 @@ C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\ref
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.pdb
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka.genruntimeconfig.cache
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\ref\semestralka.dll
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.g.cs
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.baml
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.g.cs
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.g.cs
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.baml
-C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.baml
 C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\semestralka_Content.g.cs
 C:\semcsharp-main\semestralka\bin\Debug\net6.0-windows\semestralka.exe
 C:\semcsharp-main\semestralka\bin\Debug\net6.0-windows\semestralka.deps.json
@@ -54,3 +46,11 @@ C:\semcsharp-main\semestralka\obj\Debug\net6.0-windows\refint\semestralka.dll
 C:\semcsharp-main\semestralka\obj\Debug\net6.0-windows\semestralka.pdb
 C:\semcsharp-main\semestralka\obj\Debug\net6.0-windows\semestralka.genruntimeconfig.cache
 C:\semcsharp-main\semestralka\obj\Debug\net6.0-windows\ref\semestralka.dll
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.g.cs
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseInfoWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleLeaseWindow.baml
+C:\Users\peto1\source\repos\semestralka\semestralka\obj\Debug\net6.0-windows\VehicleWindow.baml

@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace semestralka
+namespace semestralka.Data
 {
     public class LeaseInfo
     {
-        public string Name { get; set; }
-        public string Contact { get; set; }
+        public string name { get; set; }
+        public string contact { get; set; }
         public DateTime from { get; set; }
         public DateTime to { get; set; }
         public DateTime? returned { get; set; }
@@ -13,11 +13,10 @@ namespace semestralka
 
         public LeaseInfo(string name, string contact, DateTime from, DateTime to, int totalCost)
         {
-            Name = name;
-            Contact = contact;
+            this.name = name;
+            this.contact = contact;
             this.from = from;
             this.to = to;
-            this.returned = returned;
             this.totalCost = totalCost;
         }
 
@@ -33,21 +32,21 @@ namespace semestralka
             returned = dateTime;
         }
 
-        public override String ToString()
-		{
-            return this.Name + " " + this.from.ToString("dd-MM-yyyy");
-		}
-
-        public String SaveFormat()
+        public override string ToString()
         {
-            String returnedTmp = "";
+            return name + " " + from.ToString("dd-MM-yyyy");
+        }
+
+        public string SaveFormat()
+        {
+            var returnedTmp = "";
 
             if (returned != null)
             {
-                returnedTmp = ((DateTime)returned).ToString("dd.MM.yyyy hh:mm");
+                returnedTmp = ((DateTime)returned).ToString("dd.MM.yyyy HH:mm");
             }
 
-            return String.Format("lease;{0};{1};{2};{3};{4};{5}", Name, Contact, from.ToString("dd.MM.yyyy"), to.ToString("dd.MM.yyyy"), returnedTmp, totalCost);
+            return $"lease;{name};{contact};{from:dd.MM.yyyy};{to:dd.MM.yyyy};{returnedTmp};{totalCost}";
         }
     }
 }

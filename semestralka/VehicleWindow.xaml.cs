@@ -1,75 +1,77 @@
 ﻿using System;
 using System.Windows;
+using semestralka.Data;
+using semestralka.Utils;
 
 namespace semestralka
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class VehicleWindow : Window
+    public partial class VehicleWindow
     {
-        private Vehicle currentVehicle;
-        private MainWindow mainWindow;
+        private Vehicle _currentVehicle;
+        private readonly MainWindow _mainWindow;
 
         public VehicleWindow(MainWindow parent, Vehicle vehicle)
         {
             InitializeComponent();
-            mainWindow = parent;
-            currentVehicle = vehicle;
+            _mainWindow = parent;
+            _currentVehicle = vehicle;
             LoadTexts();
         }
 
         public void SetVehicle(Vehicle vehicle)
         {
-            currentVehicle = vehicle;
+            _currentVehicle = vehicle;
             LoadTexts();
         }
 
         private void LoadTexts()
         {
-            BrandTB.Text = currentVehicle.brand;
-            ModelTB.Text = currentVehicle.model;
-            VINTB.Text = currentVehicle.vin;
-            PlateTB.Text = currentVehicle.plate;
-            ColorTB.Text = currentVehicle.color;
-            DoorsTB.Text = currentVehicle.numberOfDoors.ToString();
-            MilageTB.Text = currentVehicle.milage.ToString();
-            YearTB.Text = currentVehicle.year.ToString();
-            PriceTB.Text = currentVehicle.rentPrice.ToString();
+            BrandTB.Text = _currentVehicle.brand;
+            ModelTB.Text = _currentVehicle.model;
+            VINTB.Text = _currentVehicle.vin;
+            PlateTB.Text = _currentVehicle.plate;
+            ColorTB.Text = _currentVehicle.color;
+            DoorsTB.Text = _currentVehicle.numberOfDoors.ToString();
+            MilageTB.Text = _currentVehicle.mileage.ToString();
+            YearTB.Text = _currentVehicle.year.ToString();
+            PriceTB.Text = _currentVehicle.rentPrice.ToString();
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
             if (BrandTB.Text.Length == 0 || ModelTB.Text.Length == 0 || PlateTB.Text.Length == 0)
             {
-                MessageBox.Show("Výrobca, Model a ŠPZ sú povinné polia", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Výrobca, Model a ŠPZ sú povinné polia", Constants.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            currentVehicle.brand = BrandTB.Text;
-            currentVehicle.model = ModelTB.Text;
-            currentVehicle.vin = VINTB.Text;
-            currentVehicle.plate = PlateTB.Text;
-            currentVehicle.color = ColorTB.Text;
+            _currentVehicle.brand = BrandTB.Text;
+            _currentVehicle.model = ModelTB.Text;
+            _currentVehicle.vin = VINTB.Text;
+            _currentVehicle.plate = PlateTB.Text;
+            _currentVehicle.color = ColorTB.Text;
             try
             {
-                currentVehicle.numberOfDoors = int.Parse(DoorsTB.Text);
-                currentVehicle.milage = int.Parse(MilageTB.Text);
-                currentVehicle.year = int.Parse(YearTB.Text);
-                currentVehicle.rentPrice = int.Parse(PriceTB.Text);
+                _currentVehicle.numberOfDoors = int.Parse(DoorsTB.Text);
+                _currentVehicle.mileage = int.Parse(MilageTB.Text);
+                _currentVehicle.year = int.Parse(YearTB.Text);
+                _currentVehicle.rentPrice = int.Parse(PriceTB.Text);
             } catch (Exception ex)
             {
-                MessageBox.Show(utils.Constants.ERROR_SOMEWHERE + "\nChyba: " + ex.Message, utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Constants.ErrorSomewhere + "\nChyba: " + ex.Message, Constants.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            this.mainWindow.Update();
+            this._mainWindow.Update();
             this.Close();
         }
 
         private void DeleteButton(object sender, RoutedEventArgs e)
         {
-            this.mainWindow.remove(this.currentVehicle);
+            this._mainWindow.Remove(this._currentVehicle);
             this.Close();
         }
     }

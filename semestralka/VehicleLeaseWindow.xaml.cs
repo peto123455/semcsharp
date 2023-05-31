@@ -1,52 +1,54 @@
 ﻿using System;
 using System.Windows;
+using semestralka.Data;
+using semestralka.Utils;
 
 namespace semestralka
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class VehicleLeaseWindow : Window
+    public partial class VehicleLeaseWindow
     {
-        private Vehicle? currentVehicle;
-        private MainWindow mainWindow;
+        private Vehicle? _currentVehicle;
+        private readonly MainWindow _mainWindow;
 
         public VehicleLeaseWindow(MainWindow parent, Vehicle vehicle)
         {
             InitializeComponent();
-            mainWindow = parent;
+            _mainWindow = parent;
             this.SetVehicle(vehicle);
         }
 
         public void SetVehicle(Vehicle vehicle)
         {
-            currentVehicle = vehicle;
+            _currentVehicle = vehicle;
         }
 
         private void Lease(object sender, RoutedEventArgs e)
         {
-            if (currentVehicle == null) return;
+            if (_currentVehicle == null) return;
 
-            DateTime? from = FromCalendar.SelectedDate;
-            DateTime? to = ToCalendar.SelectedDate;
+            var from = FromCalendar.SelectedDate;
+            var to = ToCalendar.SelectedDate;
 
-            TimeSpan? range = to - from;
+            var range = to - from;
 
             if (NameTB.Text.Length == 0)
             {
-                MessageBox.Show("Meno je povinné !", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Meno je povinné !", Constants.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else if (from == null || to == null || range == null || from >= to)
             {
-                MessageBox.Show("Neplatné dátumy !", utils.Constants.ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Neplatné dátumy !", Constants.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            int totalCost = currentVehicle.rentPrice * (int)range.Value.TotalDays;
-            LeaseInfo leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)from, (DateTime)to, totalCost);
+            var totalCost = _currentVehicle.rentPrice * (int)range.Value.TotalDays;
+            var leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)from, (DateTime)to, totalCost);
 
-            this.mainWindow.LeaseVehicle(this.currentVehicle, leaseInfo);
+            this._mainWindow.LeaseVehicle(this._currentVehicle, leaseInfo);
             this.Close();
         }
 
