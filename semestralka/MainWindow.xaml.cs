@@ -10,12 +10,9 @@ using semestralka.Utils;
 
 namespace semestralka
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
-        public bool EditMode = true;
+        private bool _editMode = true;
         private Vehicle? _currentVehicle;
 
         public MainWindow()
@@ -35,7 +32,7 @@ namespace semestralka
         {
             if (AvailableVehiclesList.SelectedItem == null) return;
 
-            if (EditMode)
+            if (_editMode)
             {
                 EditVehicle((Vehicle)AvailableVehiclesList.SelectedItem);
                 return;
@@ -48,7 +45,7 @@ namespace semestralka
         {
             if (LeasedVehiclesList.SelectedItem == null) return;
 
-            if (EditMode)
+            if (_editMode)
             {
                 EditVehicle((Vehicle) LeasedVehiclesList.SelectedItem);
                 return;
@@ -76,7 +73,7 @@ namespace semestralka
             LeasedVehiclesList.Items.Add(vehicle);
             AvailableVehiclesList.Items.Remove(vehicle);
 
-            this.Update();
+            Update();
         }
 
         public void ReturnVehicle(Vehicle vehicle)
@@ -87,14 +84,14 @@ namespace semestralka
             LeasedVehiclesList.Items.Remove(vehicle);
 
             vehicle.leases.Last().Return();
-            this.Update();
+            Update();
         }
 
         private void DoubleClickOnVehicle(object sender, RoutedEventArgs e)
         {
-            EditMode = !EditMode;
+            _editMode = !_editMode;
 
-            ((Button)sender).Content = EditMode ? "Dvojklik: Úprava" : "Dvojklik: Správa";
+            ((Button)sender).Content = _editMode ? "Dvojklik: Úprava" : "Dvojklik: Správa";
         }
 
 		public bool Remove(Vehicle vehicle)
@@ -129,9 +126,9 @@ namespace semestralka
 
         private void ChangeVehicle(Vehicle vehicle)
         {
-            this._currentVehicle = vehicle;
+            _currentVehicle = vehicle;
 
-            this.UpdateVehicleInfo();
+            UpdateVehicleInfo();
         }
 
         private void UpdateVehicleInfo()

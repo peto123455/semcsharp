@@ -5,9 +5,6 @@ using semestralka.Data;
 
 namespace semestralka
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class VehicleLeaseInfoWindow
     {
         private Vehicle? _currentVehicle;
@@ -24,7 +21,7 @@ namespace semestralka
 		{
 			InitializeComponent();
 			_mainWindow = parent;
-			this.SetVehicle(vehicle);
+			SetVehicle(vehicle);
 
 			LoadText();
 		}
@@ -36,7 +33,7 @@ namespace semestralka
             ReturnButton.IsEnabled = false;
 
 			_mainWindow = parent;
-			this.SetLease(leaseInfo);
+			SetLease(leaseInfo);
 
 			LoadText();
 		}
@@ -49,7 +46,7 @@ namespace semestralka
 
 		public void SetLease(LeaseInfo leaseInfo)
 		{
-            this._leaseInfo = leaseInfo;
+            _leaseInfo = leaseInfo;
 			LoadText();
 		}
 
@@ -73,13 +70,13 @@ namespace semestralka
         {
             if (_currentVehicle == null) return;
 
-            this._mainWindow.ReturnVehicle(_currentVehicle);
-            this.Close();
+            _mainWindow.ReturnVehicle(_currentVehicle);
+            Close();
         }
 
         private void CloseButton(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

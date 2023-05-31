@@ -5,9 +5,6 @@ using semestralka.Utils;
 
 namespace semestralka
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class VehicleLeaseWindow
     {
         private Vehicle? _currentVehicle;
@@ -17,7 +14,7 @@ namespace semestralka
         {
             InitializeComponent();
             _mainWindow = parent;
-            this.SetVehicle(vehicle);
+            SetVehicle(vehicle);
         }
 
         public void SetVehicle(Vehicle vehicle)
@@ -48,13 +45,13 @@ namespace semestralka
             var totalCost = _currentVehicle.rentPrice * (int)range.Value.TotalDays;
             var leaseInfo = new LeaseInfo(NameTB.Text, ContactTB.Text, (DateTime)from, (DateTime)to, totalCost);
 
-            this._mainWindow.LeaseVehicle(this._currentVehicle, leaseInfo);
-            this.Close();
+            _mainWindow.LeaseVehicle(this._currentVehicle, leaseInfo);
+            Close();
         }
 
         private void CloseButton(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

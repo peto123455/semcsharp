@@ -5,9 +5,6 @@ using semestralka.Utils;
 
 namespace semestralka
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class VehicleWindow
     {
         private Vehicle _currentVehicle;
@@ -17,12 +14,6 @@ namespace semestralka
         {
             InitializeComponent();
             _mainWindow = parent;
-            _currentVehicle = vehicle;
-            LoadTexts();
-        }
-
-        public void SetVehicle(Vehicle vehicle)
-        {
             _currentVehicle = vehicle;
             LoadTexts();
         }
@@ -65,14 +56,14 @@ namespace semestralka
                 return;
             }
 
-            this._mainWindow.Update();
-            this.Close();
+            _mainWindow.Update();
+            Close();
         }
 
         private void DeleteButton(object sender, RoutedEventArgs e)
         {
-            this._mainWindow.Remove(this._currentVehicle);
-            this.Close();
+            _mainWindow.Remove(this._currentVehicle);
+            Close();
         }
     }
 }
